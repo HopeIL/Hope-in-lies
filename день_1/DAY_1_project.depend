@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1582646749 source:c:\users\admin\desktop\day_1_project\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+
+1582444197 source:c:\users\admin\desktop\day_1_project\function.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+
