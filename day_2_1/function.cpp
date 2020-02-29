@@ -27,15 +27,7 @@ ofstream fout;
 
 random_device rd;
 mt19937 gen(rd());
-void print(string s, int tm)
-{
-    for(int i = 0; i < s.size(); i++)
-    {
-        cout << char(s[i]);
-        wait(tm);
-    }
-    wait(500);
-}
+
 
 enum ConsoleColor
 {
@@ -68,7 +60,16 @@ void SetColor(int text, ConsoleColor/*int*/ background)
     HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
 }
-
+void print(string s, int tm)
+{
+    //SetColor(0, 15);
+    for(int i = 0; i < s.size(); i++)
+    {
+        cout << char(s[i]);
+        wait(tm);
+    }
+    wait(500);
+}
 void print_col(int x, int n)
 {
     while(n--)
@@ -195,11 +196,7 @@ void titr()
     clr;
     print("Автор идеи: Bill, Dedalius.", 60);
     cout << endl;
-    print("Технические наработки и релиз: Dedalius, game ruiner, TemaTop.", 60);
-    cout << endl;
-    print("Дизайн: Кускова Юлия, Балюконис Милана.", 60);
-    cout << endl;
-    print("Менеджер команды разработки: VaryaSch.", 60);
+    print("Технические наработки и релиз: Dedalius.", 60);
     cout << endl;
     wait(3000);
     print("Огромная благодарность всем нашим друзьям и близким, спасибо, что верили в нас.", 60);
@@ -344,7 +341,79 @@ void browser_logo()
     }
 }
 
+void color (int x, int y)
+{
+    SetColor(x, y);
+}
 
+void browser(bool error)
+{
+    HANDLE hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsoleHandle, FOREGROUND_GREEN);
+    fin.open("browser.txt");
+    string browser;
+    int k = 0;
+    while(getline(fin, browser))
+    {
+        k++;
+
+        for(int i = 0; i < browser.size(); i++)
+        {
+            if(error == 1)
+                goto error;
+            if(k == 40)
+                if((browser[i] >= 'A' && browser[i] <= 'Z') ||(browser[i] == ')' || browser[i] == '('))
+                {
+                    HANDLE hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+                    SetConsoleTextAttribute(hConsoleHandle, FOREGROUND_RED);
+
+                }
+error:
+            cout << browser[i];
+            HANDLE hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+            SetConsoleTextAttribute(hConsoleHandle, FOREGROUND_GREEN);
+        }
+        cout << endl;
+    }
+
+    fin.close();
+}
+
+
+void porthack()
+{
+    fin.open("port.txt");
+    string port;
+    fin >> port;
+    int k = -1;
+    int z = 1;
+    fin.close();
+    while(z)
+    {
+        z = 0;
+        for(int i = 0; i < port.size(); i++)
+        {
+            k++;
+            if(k > 72)
+            {
+                cout << endl;
+                k = 0;
+            }
+            if(port[i] != 'Z')
+                z = 1;
+            cout << port[i];
+            if(port[i] != 'Z')
+                port[i] += (gen() + 1) % 2;
+            if(port[i] > '9')
+                port[i] = 'Z';
+        }
+        clr;
+    }
+
+
+
+
+}
 
 
 
