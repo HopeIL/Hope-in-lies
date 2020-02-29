@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1582914112 source:c:\users\admin\desktop\day_2_1\function.cpp
+1582976753 source:c:\users\admin\desktop\day_2_1\function.cpp
 	<iostream>
 	<fstream>
 	<vector>
@@ -12,7 +12,7 @@
 	<locale.h>
 	<clocale>
 
-1582915251 source:c:\users\admin\desktop\day_2_1\main.cpp
+1582973778 source:c:\users\admin\desktop\day_2_1\main.cpp
 	<iostream>
 	<fstream>
 	<vector>

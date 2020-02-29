@@ -48,9 +48,18 @@ enum ConsoleColor
     Yellow        = 14,
     White         = 15
 };
-void print(string s, int tm);
 void SetColor(int text, int background);
 void SetColor(int text, ConsoleColor/*int*/ background);
+void print(string s, int tm)
+{
+    //SetColor(0, 15);
+    for(int i = 0; i < s.size(); i++)
+    {
+        cout << char(s[i]);
+        wait(tm);
+    }
+    wait(500);
+}
 void print_col(int x, int n);
 void print_logo();
 void load(int x);
@@ -66,11 +75,14 @@ string input(string x, string y);
 string input(string x, string y, string z);
 void eye_logo();
 void browser_logo();
+void browser(bool error);
+void porthack();
 int32_t main()
 {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251); // Ввод с консоли в кодировке 1251
+    SetConsoleOutputCP(1251);
+    setlocale(0, "Rus");
+
     PlaySound(TEXT("1.wav"), NULL, SND_ASYNC);
     HWND hWnd = GetForegroundWindow();
     ShowWindow(hWnd, 3);
@@ -137,15 +149,106 @@ int32_t main()
 //    print("H.O.P.E: Вся радость в том, что ваш браузер очень хорош, он не позволит вам облениться, надеюсь вводить команды вручную вам привычно, а точно, вы же только этим и занимались\n", 60);
 //    print("Вы слышите просто запись чьего-то смеха, который раздается из динамика ИИ.\n", 60);
 //    print("H.O.P.E: Просто введите команду 'home', чтобы оказаться на главной странице, к несчастью все остальные команды до этого будут заблокированы, в связи с вашей чрезмерной глупостью.\n", 60);
-    input("home");
-    wait(500);
-    clr;
-    //SetColor(2, 0);
-    fin_day_2.open("browser.txt");
-    string browser;
-    while(getline(fin_day_2, browser))
-    cout << browser << endl;
-    fin_day_2.close();
+//    input("home");
+//    wait(500);
+//    clr;
+//    browser(1LL);
+//    print("H.O.P.E.: Ну, вот вы и в системе, будет у вас время насмотреться на неё горящими глазами, если вы не в курсе, то вы смотрели так каждый раз, как видели эту убожескую 'командную строку'\n", 60);
+//    print("H.O.P.E.: Вы сейчас напоминаете хакера из древних фильмов, а... точно... забудьте. Можем продолжать.\n", 60);
+//    print("H.O.P.E.: Вобщем, давайте подключимся к одному из головных(но пока не самых защищенных)серверов правительства, чтобы узнать больше об иерархии этого мира, ведь я знаю о нем не больше вашего это точно.\n", 60);
+//    print("H.O.P.E.: Для этого просто введите его название, думаю оно не покажется вам таким ироничным, как мне. 'easyinfo'.", 60);
+//    input("easyinfo");
+//    print("Сервер подключен.\n", 60);
+//    print("H.O.P.E.: Теперь достаточно активировать программу 'porthack', надеюсь справитесь без подсказок(вообще постарайтесь запомнить, это вам не раз пригодится).\n", 60);
+//    input("porthack");
+//    wait(1000);
+//    clr;
+//    porthack();
+//    wait(1000);
+//    clr;
+//    print("administrator access is obtained.\n", 60);
+//    wait(1000);
+    print("H.O.P.E.: Вы столкнулись с самой простой системой блокировки, очень хорошо, что вы смогли запустить программу взлома, видимо у человечества есть надежда.\n", 60);
+    print("H.O.P.E.: Сервер почти как компьютер, вот только некоторые приложения не будут доступны, можете запускать любые команды и наслаждаться моей реaкцией", 60);
+    string com;
+    string s = "home";
+    cin >> com;
+    while(1)
+    {
+        cin >> com;
+        if(com == "home")
+        {
+            print("H.O.P.E.: Поздравляю, вы открыли домашнюю страницу, теперь вы можете выбрать любой файл, если он не сможет быть открыт, файл будет скачан вам на компьютер.\n", 60);
+            print("H.O.P.E.: Зачастую тут будут подобраны самые интересные файлы.\n", 60);
+            wait(1000);
+            clr;
+            cout << "report.txt" << endl;
+            cout << "games.exe" << endl;
+            cout << "plan.txt" << endl;
+            cout << "work.txt" << endl;
+            cout << "top_secret.txt" << endl;
+            cout << "open_please.txt" << endl;
+            string ans;
+            while(1)
+            {
+                cin >> ans;
+                if(ans == "report.txt")
+                {
+                    fin_day_2.open("report.txt");
+                    string s;
+                    while(getline(fin_day_2, s))
+                    {
+                        cout << s;
+                    }
+                }
+                if(ans == "plan.txt")
+                {
+                    fin_day_2.open("plan.txt");
+                    string s;
+                    while(getline(fin_day_2, s))
+                    {
+                        cout << s;
+
+                    }
+                }
+                if(ans == "work.txt")
+                {
+                    fin_day_2.open("work.txt");
+                    string s;
+                    while(getline(fin_day_2, s))
+                    {
+                        cout << s;
+                    }
+                }
+                if(ans == "top_secret.txt")
+                {
+                    fin_day_2.open("top_secret.txt");
+                    string s;
+                    while(getline(fin_day_2, s))
+                    {
+                        cout << s;
+                    }
+                }
+                if(ans == "open_please.txt")
+                {
+                    fin_day_2.open("open_please.txt");
+                    string s;
+                    while(getline(fin_day_2, s))
+                    {
+                        cout << s;
+                    }
+                }
+            }
+
+//        case "games.exe":
+//        case "plan.txt":
+//        case "work.txt":
+//        case "top_secret.txt":
+//        case "not_open.txt":
+
+        }
+
+    }
     update_save();
 }
 
