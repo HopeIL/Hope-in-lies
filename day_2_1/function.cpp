@@ -388,26 +388,31 @@ void porthack()
     int k = -1;
     int z = 1;
     fin.close();
+    for(int i = 0; i < port.size(); i++)
+    {
+        k++;
+        if(k > 72)
+        {
+            cout << endl;
+            k = 0;
+        }
+    }
     while(z)
     {
         z = 0;
-        for(int i = 0; i < port.size(); i++)
+        for(int j = 0; j < port.size(); j++)
         {
-            k++;
-            if(k > 72)
-            {
-                cout << endl;
-                k = 0;
-            }
-            if(port[i] != 'Z')
+            COORD position = {j % 73, j / 73}; //позиция x и y
+            HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+            SetConsoleCursorPosition(hConsole, position);
+            if(port[j] != 'Z')
                 z = 1;
-            cout << port[i];
-            if(port[i] != 'Z')
-                port[i] += (gen() + 1) % 2;
-            if(port[i] > '9')
-                port[i] = 'Z';
+            cout << port[j];
+            if(port[j] != 'Z')
+                port[j] += (gen() + 1) % 2;
+            if(port[j] > '9')
+                port[j] = 'Z';
         }
-        clr;
     }
 
 
@@ -415,5 +420,206 @@ void porthack()
 
 }
 
+
+int server_1()
+{
+    int k = 0;
+    string com;
+    string s = "home";
+    while(1)
+    {
+        cin >> com;
+        if(com == "home")
+        {
+            print("H.O.P.E.: Поздравляю, вы открыли домашнюю страницу, теперь вы можете выбрать любой файл, если он не сможет быть открыт, файл будет скачан вам на компьютер.\n", 60);
+            print("H.O.P.E.: Зачастую тут будут подобраны самые интересные файлы.\n", 60);
+            print("H.O.P.E.: Чтобы выйти отсюда введите команду 'close'.\n", 60);
+            wait(1000);
+            clr;
+            int file[6] = {0};
+            cout << "report.txt" << endl;
+            cout << "games.exe" << endl;
+            cout << "plan.txt" << endl;
+            cout << "work.txt" << endl;
+            cout << "top_secret.txt" << endl;
+            cout << "open_please.txt" << endl;
+            string ans;
+            while(1)
+            {
+                cin >> ans;
+                if(ans == "report.txt")
+                {
+                    fin.open("report.txt");
+                    string s;
+                    while(getline(fin, s))
+                    {
+                        cout << s;
+                    }
+                    if(file[0] == 0)
+                        k++;
+                    file[0] = 1;
+                    k++;
+                    system("pause");
+                }
+                if(ans == "games.exe")
+                {
+                    print("Вам будет предложено несколько примеров задач, а вы по анологии будете решать подобные\n", 60);
+                    for(int i = 0; i < 5; i++)
+                    {
+                        int a = (gen() + 1) % 2, b = (gen() + 1) % 2, c = (gen() + 1) % 2;
+                        int ot = a * b * c;
+                        print(to_string(a) + ' ' + to_string(b) + ' ' + to_string (c) + "      " + to_string(ot) + '\n', 60);
+                    }
+                    print("Каждая строка представлена из трех чисел и одного ответа, постарайтесь ответить на предложеные входные данные", 60);
+                    for(int i = 0; i < 5; i++)
+                    {
+                        int a = (gen() + 1) % 2, b = (gen() + 1) % 2, c = (gen() + 1) % 2;
+                        int ot = a * b * c;
+                        print(to_string(a) + ' ' + to_string(b) + ' ' + to_string (c) + "  =  \n", 60);
+                        string v;
+                        cin >> v;
+                    }
+                    print("Спасибо, ваш ввод бужет учтен при вашем перераспределении на новую должность, приятоного дня\n", 60);
+                    wait(1000);
+                    clr;
+                    k++;
+                    if(file[1] == 0)
+                        k++;
+                    file[1] = 1;
+                }
+                if(ans == "plan.txt")
+                {
+                    fin.open("plan.txt");
+                    string s;
+                    while(getline(fin, s))
+                    {
+                        cout << s;
+
+                    }
+                    if(file[2] == 0)
+                        k++;
+                    file[2] = 1;
+                    system("pause");
+                    k++;
+                }
+                if(ans == "work.txt")
+                {
+                    fin.open("work.txt");
+                    string s;
+                    while(getline(fin, s))
+                    {
+                        cout << s;
+                    }
+                    if(file[3] == 0)
+                        k++;
+                    file[3] = 1;
+                    system("pause");
+                    k++;
+                }
+                if(ans == "top_secret.txt")
+                {
+                    fin.open("top_secret.txt");
+                    string s;
+                    while(getline(fin, s))
+                    {
+                        cout << s;
+                    }
+                    if(file[4] == 0)
+                        k++;
+                    file[4] = 1;
+                    system("pause");
+                    k++;
+                }
+                if(ans == "open_please.txt")
+                {
+                    fin.open("open_please.txt");
+                    string s;
+                    while(getline(fin, s))
+                    {
+                        cout << s;
+                    }
+                    if(file[5] == 0)
+                        k++;
+                    file[5] = 1;
+                    system("pause");
+
+                }
+                if(ans == "close")
+                {
+                    clr;
+                    break;
+                }
+                clr;
+                SetColor(7, 0);
+                if(file[0] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "report.txt" << endl;
+                SetColor(7, 0);
+                if(file[1] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "games.exe" << endl;
+                SetColor(7, 0);
+                if(file[2] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "plan.txt" << endl;
+                SetColor(7, 0);
+                if(file[3] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "work.txt" << endl;
+                SetColor(7, 0);
+                if(file[4] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "top_secret.txt" << endl;
+                SetColor(7, 0);
+                if(file[5] == 1)
+                {
+                    SetColor(8, 0);
+                }
+                cout << "open_please.txt" << endl;
+                SetColor(7, 0);
+            }
+
+        }
+        if(com == "help")
+        {
+            cout << "Список доступных комманд(а вы оказывается не глупы):" << endl;
+            cout << "help - список всех комманд" << endl;
+            cout << "home - главная страница" << endl;
+            cout << "disconnect - отключится от сервера" << endl;
+            cout << "scan - сканировать сеть в поисках новых серверов" << endl;
+            cout << "destroy - уничтожить сервер" << endl;
+        }
+        if(com == "disconnect")
+        {
+            print("Вы посчитали, что собрали достаточно информации и просто отключились от сервера", 60);
+            return k;
+        }
+        if(com == "destroy")
+        {
+            print("Первое время ничего не происходило... Как вдруг...\n", 60);
+            PlaySound(TEXT("boom.wav"), NULL, SND_ASYNC);
+            for(int i = 0; i < 20000; i++)
+            {
+                COORD position = {gen()%200, gen() % 50}; //позиция x и y
+                HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+                SetConsoleCursorPosition(hConsole, position);
+                cout << char(gen()%256);
+            }
+            wait(3000);
+            clr;
+        }
+
+    }
+}
 
 
