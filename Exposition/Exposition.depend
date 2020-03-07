@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1583558788 source:c:\users\admin\desktop\exposition\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+
+1583558748 source:c:\users\admin\desktop\exposition\function.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+
