@@ -25,3 +25,32 @@
 	<locale.h>
 	<clocale>
 
+1584025366 source:f:\exposition\main.cpp
+	<bits/stdc++.h>
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+	<audiere.h>
+	<time.h>
+
+1584024353 source:f:\exposition\function.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<cmath>
+	<windows.h>
+	<random>
+	<stdlib.h>
+	<stdio.h>
+	<locale.h>
+	<clocale>
+
